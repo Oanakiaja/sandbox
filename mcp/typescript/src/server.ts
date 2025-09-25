@@ -1,5 +1,14 @@
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
-import { z } from 'zod';
+import {
+  registerBrowserTools,
+  registerFileTools,
+  registerTerminalTools,
+  registerDocumentTools,
+  registerResearchTools,
+  registerContextTools,
+} from './tools/index.js';
+import { registerBrowserResources } from './resources/index.js';
+import { registerPaperPrompts } from './prompts/index.js';
 
 async function createServer(): Promise<McpServer> {
   const server = new McpServer({
@@ -7,27 +16,19 @@ async function createServer(): Promise<McpServer> {
     version: process.env.VERSION || '0.0.1',
   });
 
-  // === Tools ===
-  server.registerTool(
-    'test_tool',
-    {
-      description: 'Test tool',
-      inputSchema: {
-        hello: z.string().describe('Hello'),
-      },
-    },
-    async (args) => {
-      return {
-        isError: false,
-        content: [
-          {
-            type: 'text',
-            text: 'Hello, ' + args.hello,
-          },
-        ],
-      };
-    },
-  );
+  // Register tool categories
+  registerBrowserTools(server);
+  registerFileTools(server);
+  registerTerminalTools(server);
+  registerDocumentTools(server);
+  registerResearchTools(server);
+  registerContextTools(server);
+
+  // Register resources
+  registerBrowserResources(server);
+
+  // Resigter prompts
+  registerPaperPrompts(server);
 
   return server;
 }

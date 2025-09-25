@@ -1,18 +1,18 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-07-09/server.schema.json",
-  "name": "io.github.username/mcp-server-typescript",
-  "description": "MCP server for browser use access",
+  "name": "io.github.agent-infra/mcp-server-aio-sandbox",
+  "description": "MCP server for AIO Sandbox",
   "status": "active",
   "repository": {
-    "url": "https://github.com/username/mcp-server-typescript",
+    "url": "https://github.com/agent-infra/sandbox",
     "source": "github"
   },
-  "version": "1.0.0",
+  "version": "0.0.1",
   "packages": [
     {
       "registry_type": "npm",
       "registry_base_url": "https://registry.npmjs.org",
-      "identifier": "mcp-server-typescript",
+      "identifier": "mcp-server-aio-sandbox",
       "version": "latest",
       "transport": {
         "type": "stdio"
@@ -23,7 +23,7 @@
     {
       "registry_type": "npm",
       "registry_base_url": "https://registry.npmjs.org",
-      "identifier": "mcp-server-typescript",
+      "identifier": "mcp-server-aio-sandbox",
       "version": "latest",
       "runtime_hint": "npx",
       "transport": {
@@ -46,7 +46,7 @@
     {
       "registry_type": "npm",
       "registry_base_url": "https://registry.npmjs.org",
-      "identifier": "mcp-server-typescript",
+      "identifier": "mcp-server-aio-sandbox",
       "version": "latest",
       "runtime_hint": "npx",
       "transport": {
